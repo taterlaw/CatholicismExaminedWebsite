@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Source Check · Catholicism Examined</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    .report { padding: 40px 0 80px; }
+    .status { padding: 20px 24px; border-radius: var(--radius); font-weight: 600; font-size: 1.1rem; }
+    .status.pass { background: #e6f3ea; color: #1d5b33; border: 1px solid #b9dcc4; }
+    .status.fail { background: #fbeaea; color: #8a1f1f; border: 1px solid #efc2c2; }
+    .report table { width: 100%; border-collapse: collapse; margin-top: 28px; background: var(--surface); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); font-size: .9rem; }
+    .report th, .report td { text-align: left; padding: 10px 14px; border-bottom: 1px solid var(--line); vertical-align: top; }
+    .report th { background: var(--navy); color: #fff; font-weight: 600; }
+    .report td a { word-break: break-all; }
+    .table-wrap { overflow-x: auto; }
+    .report li { margin-bottom: 6px; }
+  </style>
+</head>
+<body>
+  <header class="site-header"><div class="wrap header-inner"><a class="brand" href="index.html"><span>Catholicism <em>Examined</em></span></a><span class="header-tag">Source check</span></div></header>
+  <main class="wrap report">
+    <h1>Source check</h1>
+    <p class="lede">This page checks every citation in <code>js/claims.js</code> against the source rule: NABRE Scripture from bible.usccb.org, and the Catechism and Church teaching from vatican.va. It checks where each link points. You still need to open each link to confirm the wording matches.</p>
+    <div id="result"></div>
+  </main>
+  <script src="js/claims.js"></script>
+  <script src="js/verify-rules.js"></script>
+  <script>
+    (function () {
+      const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+      const { errors, citations } = window.verifyClaims(window.CLAIMS, window.ALLOWED_SOURCES);
+      const claims = window.CLAIMS || [];
+      let html = errors.length
+        ? `<div class="status fail">✗ Found ${errors.length} problem(s)</div><ul>${errors.map((e) => `<li>${esc(e)}</li>`).join("")}</ul>`
+        : `<div class="status pass">✓ All ${citations} citations across ${claims.length} claim(s) use approved Catholic sources.</div>`;
+      html += `<div class="table-wrap"><table><thead><tr><th>Claim</th><th>Reference</th><th>Type</th><th>Link</th></tr></thead><tbody>`;
+      for (const c of claims) for (const ev of c.evidence || [])
+        html += `<tr><td>${esc(c.id)}</td><td>${esc(ev.ref)}</td><td>${esc(ev.type)}</td><td><a href="${esc(ev.url)}" target="_blank" rel="noopener">${esc(ev.url)}</a></td></tr>`;
+      html += `</tbody></table></div>`;
+      document.getElementById("result").innerHTML = html;
+    })();
+  </script>
+</body>
+</html>
