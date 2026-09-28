@@ -34,6 +34,7 @@
 html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
 body {
   margin: 0;
+  overflow-wrap: break-word;
   background: var(--bg);
   color: var(--ink);
   font: 400 17px/1.65 var(--sans);
@@ -42,7 +43,7 @@ body {
 img, svg { display: block; }
 a { color: var(--navy); }
 h1, h2, h3 { font-family: var(--serif); color: var(--navy-deep); line-height: 1.15; margin: 0; }
-button { font: inherit; cursor: pointer; }
+button { font: inherit; cursor: pointer; -webkit-tap-highlight-color: transparent; touch-action: manipulation; }
 :focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; border-radius: 6px; }
 
 .wrap { width: 100%; max-width: 1080px; margin: 0 auto; padding: 0 16px; }
@@ -101,8 +102,7 @@ button { font: inherit; cursor: pointer; }
 .chip .count { opacity: .7; margin-left: 4px; font-size: .8em; }
 
 /* ---------- Claim cards ---------- */
-.claim-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; padding: 32px 0 64px; }
-@media (max-width: 360px) { .claim-grid { grid-template-columns: 1fr; } }
+.claim-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr)); gap: 20px; padding: 32px 0 64px; }
 .claim-card {
   position: relative; text-align: left; width: 100%;
   display: flex; flex-direction: column; gap: 12px;
@@ -115,21 +115,24 @@ button { font: inherit; cursor: pointer; }
   content: ""; position: absolute; inset: 0 0 auto 0; height: 4px;
   background: linear-gradient(90deg, var(--navy), var(--gold));
 }
-.claim-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lift); border-color: #c8d2e2; }
+@media (hover: hover) {
+  .claim-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lift); border-color: #c8d2e2; }
+  .claim-card:hover .card-cta span { transform: translateX(4px); }
+}
+.claim-card:active { transform: scale(.985); }
 .claim-card h2 { font-size: 1.55rem; font-weight: 700; }
 .claim-card p { margin: 0; color: var(--muted); font-size: .96rem; }
 .cat-tag { align-self: flex-start; background: var(--gold-soft); color: var(--gold-deep); font-size: .72rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; padding: 4px 10px; border-radius: 999px; }
 .card-meta { display: flex; gap: 12px; flex-wrap: wrap; font-size: .8rem; color: var(--navy-soft); }
 .card-cta { margin-top: auto; padding-top: 8px; color: var(--navy); font-weight: 600; font-size: .92rem; }
 .card-cta span { display: inline-block; transition: transform .2s; color: var(--gold-deep); }
-.claim-card:hover .card-cta span { transform: translateX(4px); }
 .empty { text-align: center; color: var(--muted); padding: 40px 0 80px; }
 
 /* ---------- Claim detail view ---------- */
 .detail-hero { background: linear-gradient(160deg, var(--navy-deep), var(--navy)); color: #fff; padding: 28px 0 44px; position: relative; overflow: hidden; }
 .detail-hero::after { content: ""; position: absolute; inset: auto 0 0 0; height: 3px; background: var(--gold); }
 .back-btn { display: inline-flex; align-items: center; gap: 6px; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.18); color: #fff; padding: 8px 14px; border-radius: 999px; font-size: .88rem; margin-bottom: 26px; transition: background .15s; }
-.back-btn:hover { background: rgba(255,255,255,.16); }
+@media (hover: hover) { .back-btn:hover { background: rgba(255,255,255,.16); } }
 .detail-hero .cat-tag { background: rgba(201,162,39,.2); color: #f1d98a; }
 .detail-hero h1 { color: #fff; font-size: clamp(2rem, 5.5vw, 3.2rem); margin-top: 14px; max-width: 22ch; }
 
@@ -143,12 +146,23 @@ button { font: inherit; cursor: pointer; }
 .answer-box p:last-child { margin: 0; font-family: var(--serif); font-size: 1.42rem; line-height: 1.4; color: var(--navy-deep); font-weight: 600; }
 
 .detail-grid { display: grid; gap: 40px; margin-top: 40px; }
+.detail-grid > * { min-width: 0; }   /* lets long text wrap instead of widening the page */
 @media (min-width: 960px) { .detail-grid { grid-template-columns: 240px 1fr; } }
-.toc { display: none; }
+
+/* "On this page" — a row of jump buttons on phones/tablets, a sticky sidebar on desktop */
+.toc { display: flex; flex-wrap: wrap; gap: 8px; }
+.toc p { display: none; }
+.toc a {
+  display: inline-flex; align-items: center; min-height: 40px; padding: 0 16px;
+  border: 1px solid var(--line); border-radius: 999px; background: var(--surface);
+  color: var(--navy); text-decoration: none; font-size: .9rem; font-weight: 500;
+}
+@media (max-width: 959px) { .detail-grid { gap: 28px; margin-top: 24px; } }
 @media (min-width: 960px) {
+  .toc p { display: block; }
   .toc { display: block; position: sticky; top: 92px; align-self: start; }
   .toc p { margin: 0 0 10px; font-size: .74rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
-  .toc a { display: block; padding: 6px 12px; border-left: 2px solid var(--line); color: var(--navy-soft); text-decoration: none; font-size: .92rem; }
+  .toc a { display: block; min-height: 0; padding: 6px 12px; border: 0; border-left: 2px solid var(--line); border-radius: 0; background: none; color: var(--navy-soft); font-weight: 400; font-size: .92rem; }
   .toc a:hover { color: var(--navy); border-color: var(--gold); }
 }
 
@@ -192,7 +206,7 @@ button { font: inherit; cursor: pointer; }
 .ev-plain strong { color: var(--navy); }
 .ev-note { margin: 10px 0 0; font-size: .88rem; color: var(--muted); }
 .ev-note strong { color: var(--navy-soft); }
-.ev-link { display: inline-flex; align-items: center; gap: 4px; margin-top: 12px; font-size: .88rem; font-weight: 600; color: var(--navy); text-decoration: none; border-bottom: 1px solid var(--gold); }
+.ev-link { display: inline-flex; align-items: center; gap: 4px; margin-top: 12px; font-size: .88rem; font-weight: 600; color: var(--navy); text-decoration: underline; text-decoration-color: var(--gold); text-decoration-thickness: 1.5px; text-underline-offset: 4px; }
 .ev-link:hover { color: var(--gold-deep); }
 
 /* Objections accordion */
@@ -224,7 +238,47 @@ button { font: inherit; cursor: pointer; }
 /* ---------- Footer ---------- */
 .site-footer { background: var(--navy-deep); color: #c3cde0; padding: 36px 0 44px; border-top: 3px solid var(--gold); font-size: .92rem; }
 .site-footer strong { color: #fff; }
-.site-footer .fine { font-size: .76rem; color: #93a3bd; margin-bottom: 0; }
+.site-footer .fine { font-size: .8rem; color: #93a3bd; margin-bottom: 0; }
+
+/* ---------- Phones (up to 600px wide) ---------- */
+@media (max-width: 600px) {
+  body { font-size: 16.5px; }
+  .header-inner { min-height: 56px; }
+  .brand { font-size: 1.3rem; }
+  .brand-mark { width: 26px; height: 26px; }
+
+  .hero { padding: 36px 0 26px; }
+  .lede { font-size: 1rem; margin: 12px 0 22px; }
+  .search { flex-basis: 100%; max-width: none; }
+  .chip { min-height: 40px; }
+
+  .claim-grid { gap: 16px; padding: 24px 0 48px; }
+  .claim-card { padding: 22px 20px; }
+  .claim-card h2 { font-size: 1.45rem; }
+
+  .detail-hero { padding: 20px 0 40px; }
+  .back-btn { min-height: 40px; margin-bottom: 20px; }
+  .detail-hero h1 { font-size: 1.9rem; }
+
+  .answer-box { padding: 18px 18px 18px 16px; }
+  .answer-box p:last-child { font-size: 1.24rem; }
+
+  .section + .section { margin-top: 40px; }
+  .section-title { font-size: 1.65rem; margin-bottom: 14px; }
+
+  .ev-card { padding: 18px 16px; }
+  .ev-ref { font-size: 1.2rem; }
+  .ev-quote { font-size: 1.18rem; padding-left: 14px; }
+  .ev-plain { font-size: .95rem; }
+  .ev-link { padding: 8px 0; margin-top: 4px; }
+
+  .faq summary { padding: 16px 50px 16px 16px; font-size: 1.15rem; }
+  .faq-body { padding: 14px 16px 18px; }
+  .ref-chip { min-height: 36px; padding: 0 12px; font-size: .82rem; }
+
+  .source-note { margin-top: 40px; padding: 16px 18px; }
+  .site-footer { padding: 28px 0 36px; }
+}
 
 /* ---------- Motion ---------- */
 .view:not([hidden]) { animation: rise .4s ease both; }

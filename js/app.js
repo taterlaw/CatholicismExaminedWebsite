@@ -242,21 +242,25 @@
   }
 
   /* ---------------- Routing (#claim-id) ---------------- */
+  let homeScroll = 0;   // remembers where the reader was in the list
+
   function route() {
     const id = decodeURIComponent(location.hash.slice(1));
     const claim = claims.find((c) => c.id === id);
     if (claim) {
+      if (!homeView.hidden) homeScroll = window.scrollY;
       activeType = "all";
       renderClaim(claim);
       homeView.hidden = true;
       claimView.hidden = false;
       document.title = `${claim.title} · Catholicism Examined`;
+      window.scrollTo(0, 0);
     } else {
       claimView.hidden = true;
       homeView.hidden = false;
       document.title = "Catholicism Examined";
+      window.scrollTo(0, homeScroll);
     }
-    window.scrollTo(0, 0);
   }
 
   renderFilters();
