@@ -36,7 +36,14 @@
       if (!ok) console.warn(`[Catholicism Examined] Hidden evidence "${ev.ref}" in "${claim.id}": source not on the approved list.`);
       return ok;
     });
-    return { ...claim, evidence, objections: claim.objections || [] };
+    const furtherReading = (claim.furtherReading || []).filter((item) => {
+      let host = "";
+      try { host = new URL(item.url).host; } catch { /* invalid url */ }
+      const ok = (RULES.furtherReadingHosts || []).includes(host);
+      if (!ok) console.warn(`[Catholicism Examined] Hidden further-reading link "${item.title}" in "${claim.id}": site not on the approved list.`);
+      return ok;
+    });
+    return { ...claim, evidence, objections: claim.objections || [], points: claim.points || [], furtherReading };
   });
 
   /* ---------------- Home view ---------------- */
@@ -137,6 +144,14 @@
       .join("");
   }
 
+  function refChips(refs, refSet) {
+    const shown = (refs || []).filter((r) => refSet.has(r));
+    if (!shown.length) return "";
+    return `<div class="ref-chips"><span>See:</span>${shown
+      .map((r) => `<button class="ref-chip" type="button" data-ref="${esc(r)}">${esc(r)}</button>`)
+      .join("")}</div>`;
+  }
+
   function renderClaim(claim) {
     const refSet = new Set(claim.evidence.map((e) => e.ref));
     claimView.innerHTML = `
@@ -156,14 +171,36 @@
           <nav class="toc" aria-label="On this page">
             <p>On this page</p>
             <a href="" data-jump="sec-explain">Explanation</a>
+            ${claim.points.length ? `<a href="" data-jump="sec-steps">Step by step</a>` : ""}
             <a href="" data-jump="sec-evidence">The evidence</a>
             ${claim.objections.length ? `<a href="" data-jump="sec-faq">Common questions</a>` : ""}
+            ${claim.furtherReading.length ? `<a href="" data-jump="sec-reading">Further reading</a>` : ""}
           </nav>
           <div>
             <section class="section prose" id="sec-explain">
               <h2 class="section-title">Explanation</h2>
               ${(claim.explanation || []).map((p) => `<p>${esc(p)}</p>`).join("")}
             </section>
+
+            ${
+              claim.points.length
+                ? `<section class="section" id="sec-steps">
+                <h2 class="section-title">The case, step by step</h2>
+                <ol class="steps">
+                  ${claim.points
+                    .map(
+                      (pt) => `
+                    <li class="step">
+                      <h3>${esc(pt.heading)}</h3>
+                      <p>${esc(pt.text)}</p>
+                      ${refChips(pt.evidenceRefs, refSet)}
+                    </li>`
+                    )
+                    .join("")}
+                </ol>
+              </section>`
+                : ""
+            }
 
             <section class="section" id="sec-evidence">
               <h2 class="section-title">The evidence</h2>
@@ -183,16 +220,30 @@
                       <summary>${esc(o.question)}</summary>
                       <div class="faq-body">
                         <p>${esc(o.answer)}</p>
-                        ${
-                          (o.evidenceRefs || []).length
-                            ? `<div class="ref-chips"><span>See:</span>${o.evidenceRefs
-                                .filter((r) => refSet.has(r))
-                                .map((r) => `<button class="ref-chip" type="button" data-ref="${esc(r)}">${esc(r)}</button>`)
-                                .join("")}</div>`
-                            : ""
-                        }
+                        ${refChips(o.evidenceRefs, refSet)}
                       </div>
                     </details>`
+                    )
+                    .join("")}
+                </div>
+              </section>`
+                : ""
+            }
+
+            ${
+              claim.furtherReading.length
+                ? `<section class="section" id="sec-reading">
+                <h2 class="section-title">Further reading</h2>
+                <div class="reading-box">
+                  <p class="reading-flag">Not evidence. Outside reading only.</p>
+                  ${claim.furtherReading
+                    .map(
+                      (r) => `
+                    <div class="reading-item">
+                      <a href="${esc(r.url)}" target="_blank" rel="noopener">${esc(r.title)} ↗</a>
+                      <p class="reading-meta">${esc([r.author, r.publisher].filter(Boolean).join(" · "))}</p>
+                      ${r.note ? `<p>${esc(r.note)}</p>` : ""}
+                    </div>`
                     )
                     .join("")}
                 </div>

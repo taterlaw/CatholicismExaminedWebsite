@@ -20,8 +20,11 @@ There is no build step. You can host it anywhere static, such as GitHub Pages or
 **All claims live in one file: [`js/claims.js`](js/claims.js).**
 
 1. Open `js/claims.js`. A commented **TEMPLATE** is at the top.
-2. Copy the template and paste it as a new entry at the end of the `window.CLAIMS` list. Put a comma after the previous claim's closing `}`.
+2. Copy the template and paste it at the bottom of the `window.CLAIMS` list, where it says "Next claim goes here."
 3. Fill in the fields: question, short answer, explanation, evidence, and common questions.
+   Two fields are optional:
+   - `points` shows a numbered **"The case, step by step"** section. Each step has a heading, a plain paragraph, and "See:" buttons that jump to its evidence. This is useful for claims with a lot of evidence.
+   - `furtherReading` shows outside Catholic reading, such as an apologist's article, in a separate box labeled **"Not evidence."** Links must come from the sites listed in `furtherReadingHosts` (currently catholic.com).
 4. Check the sources: open **`verify.html`** in your browser. Nothing needs to be installed.
    If you have Node.js, you can also run `node scripts/verify-sources.mjs`.
 5. Refresh the page. The new claim appears automatically.
@@ -33,7 +36,11 @@ The checker (`js/verify-rules.js`, used by `verify.html` and the Node script) fa
 - is Scripture not tagged `NABRE`
 - is missing its quote, reference, or link
 
-It also checks that every "See:" reference in a common question points to real evidence.
+It also checks that:
+- every "See:" reference in a step or common question points to real evidence
+- every further-reading link comes from an approved Catholic site and stays out of the evidence list
+
+**Church Fathers** (Ignatius, Irenaeus, Augustine and others) appear only where the Catechism or a Holy See document quotes them. They are never cited directly.
 
 The page runs the same check in the browser. Evidence that breaks the rule is hidden and a warning is logged to the console.
 

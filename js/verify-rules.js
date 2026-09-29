@@ -50,6 +50,25 @@ window.verifyClaims = function (CLAIMS, RULES) {
         if (!refs.has(r)) errors.push(`${where} → objection "${obj.question}": "See" reference "${r}" does not match any evidence ref`);
       }
     }
+
+    for (const pt of claim.points || []) {
+      if (!pt.heading || !pt.text) errors.push(`${where} → step "${pt.heading ?? "(no heading)"}": needs both "heading" and "text"`);
+      for (const r of pt.evidenceRefs || []) {
+        if (!refs.has(r)) errors.push(`${where} → step "${pt.heading}": "See" reference "${r}" does not match any evidence ref`);
+      }
+    }
+
+    // Further reading is NOT evidence: it must be clearly separate and from an approved Catholic site.
+    const readingHosts = (RULES && RULES.furtherReadingHosts) || [];
+    for (const item of claim.furtherReading || []) {
+      const at = `${where} → further reading "${item.title ?? "(no title)"}"`;
+      if (!item.title || !item.url) errors.push(`${at}: needs "title" and "url"`);
+      let host = "";
+      try { host = new URL(item.url).host; } catch (e) { errors.push(`${at}: url is not a valid link`); }
+      if (host && !readingHosts.includes(host)) {
+        errors.push(`${at}: site "${host}" is not on the further-reading list (allowed: ${readingHosts.join(", ") || "none"})`);
+      }
+    }
   }
   return { errors, citations };
 };

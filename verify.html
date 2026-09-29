@@ -39,6 +39,13 @@
       for (const c of claims) for (const ev of c.evidence || [])
         html += `<tr><td>${esc(c.id)}</td><td>${esc(ev.ref)}</td><td>${esc(ev.type)}</td><td><a href="${esc(ev.url)}" target="_blank" rel="noopener">${esc(ev.url)}</a></td></tr>`;
       html += `</tbody></table></div>`;
+      const reading = claims.flatMap((c) => (c.furtherReading || []).map((r) => [c.id, r]));
+      if (reading.length) {
+        html += `<h2 style="margin-top:36px">Further reading (not evidence)</h2><div class="table-wrap"><table><thead><tr><th>Claim</th><th>Title</th><th>Link</th></tr></thead><tbody>`;
+        for (const [id, r] of reading)
+          html += `<tr><td>${esc(id)}</td><td>${esc(r.title)}</td><td><a href="${esc(r.url)}" target="_blank" rel="noopener">${esc(r.url)}</a></td></tr>`;
+        html += `</tbody></table></div>`;
+      }
       document.getElementById("result").innerHTML = html;
     })();
   </script>
