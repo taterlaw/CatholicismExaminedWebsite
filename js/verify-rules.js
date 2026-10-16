@@ -53,6 +53,7 @@ window.verifyClaims = function (CLAIMS, RULES) {
 
     for (const pt of claim.points || []) {
       if (!pt.heading || !pt.text) errors.push(`${where} → step "${pt.heading ?? "(no heading)"}": needs both "heading" and "text"`);
+      if (pt.kind && !["premise", "conclusion"].includes(pt.kind)) errors.push(`${where} → step "${pt.heading}": kind must be "premise" or "conclusion"`);
       for (const r of pt.evidenceRefs || []) {
         if (!refs.has(r)) errors.push(`${where} → step "${pt.heading}": "See" reference "${r}" does not match any evidence ref`);
       }

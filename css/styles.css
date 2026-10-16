@@ -246,6 +246,11 @@ button { font: inherit; cursor: pointer; -webkit-tap-highlight-color: transparen
   font: 700 1.2rem/1 var(--serif);
 }
 .step h3 { font-size: 1.35rem; margin: 4px 0 8px; }
+.step-label { display: inline-block; font-size: .72rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--navy-soft); }
+/* Conclusions stand out in gold, so readers see where the premises lead */
+.step-conclusion { background: var(--gold-faint); border-color: #ead9a4; }
+.step-conclusion::before { background: var(--gold); color: var(--navy-deep); border-color: var(--navy); }
+.step-conclusion .step-label { color: var(--gold-deep); }
 .step p { margin: 0 0 12px; max-width: 68ch; }
 
 /* Further reading (not evidence) */

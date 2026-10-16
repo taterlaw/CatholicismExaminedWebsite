@@ -185,12 +185,13 @@
             ${
               claim.points.length
                 ? `<section class="section" id="sec-steps">
-                <h2 class="section-title">The case, step by step</h2>
+                <h2 class="section-title">${esc(claim.pointsTitle || "The case, step by step")}</h2>
                 <ol class="steps">
                   ${claim.points
                     .map(
                       (pt) => `
-                    <li class="step">
+                    <li class="step${pt.kind === "conclusion" ? " step-conclusion" : ""}">
+                      ${pt.label ? `<span class="step-label">${esc(pt.label)}</span>` : ""}
                       <h3>${esc(pt.heading)}</h3>
                       <p>${esc(pt.text)}</p>
                       ${refChips(pt.evidenceRefs, refSet)}

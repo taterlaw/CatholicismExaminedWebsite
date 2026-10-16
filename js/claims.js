@@ -26,8 +26,11 @@
        "Paragraph one, in everyday words.",
        "Paragraph two."
      ],
-     points: [                            // OPTIONAL: "The case, step by step"
+     pointsTitle: "The case, step by step",   // OPTIONAL: heading for the steps section
+     points: [                            // OPTIONAL: numbered steps
        {
+         kind: "premise",                 // OPTIONAL: "premise" or "conclusion" (conclusions show in gold)
+         label: "Premise 1",              // OPTIONAL: small tag above the step heading
          heading: "A short step title",
          text: "One plain paragraph for this step.",
          evidenceRefs: ["Luke 1:34"]      // must match refs in the evidence list
@@ -839,6 +842,352 @@ window.CLAIMS = [
         publisher: "Catholic Answers Magazine, 2015",
         url: "https://www.catholic.com/magazine/print-edition/defending-the-papacy",
         note: "A Catholic apologist’s fuller case, which this page’s outline follows. It also draws on Church Fathers and non-Catholic scholars. That is why it is listed here and not used as evidence."
+      }
+    ]
+  },
+
+  /* -------------------------------------------------------------------
+     CLAIM 3 — A logical proof for God
+     The four premises and four conclusions are philosophical reasoning
+     (a version of St. Thomas Aquinas's "second way"). The evidence shows
+     where Scripture, the Catechism, and the Holy See teach the same thing.
+     ------------------------------------------------------------------- */
+  {
+    id: "logical-proof-for-god",
+    title: "Is there a logical proof for God?",
+    category: "God & Reason",
+    summary:
+      "Yes. The Catholic Church teaches that God’s existence can be known with certainty by human reason, starting from the world around us. One classic argument reasons from cause and effect to a first, uncaused cause, which is what we mean by God.",
+    explanation: [
+      "Catholics don’t believe in God by faith alone. The Church teaches that God “can be known with certainty from the created world by the natural light of human reason” (Catechism 36). The Bible says the same: God’s “invisible attributes” can be “understood and perceived in what he has made” (Romans 1:20).",
+      "The Catechism does call these arguments “proofs for the existence of God,” but it is careful about what that means. They are not proofs like a laboratory experiment in the natural sciences. They are “converging and convincing arguments” that let us “attain certainty about the truth” (Catechism 31).",
+      "Below is one classic argument, a version of the “second way” of St. Thomas Aquinas. It starts from something everyone can see: things exist because other things cause them. It is laid out as four premises followed by four conclusions. The premises and conclusions are philosophical reasoning, not quotations. Under each step you’ll find where Scripture, the Catechism, or Church teaching says the same thing.",
+      "One honest limit: reason can show that a first cause exists and what it must be like. It cannot, on its own, tell us everything Christians believe about God, such as the Trinity. For that, the Church says, God chose to reveal himself (Catechism 35)."
+    ],
+    pointsTitle: "The argument, step by step",
+    points: [
+      {
+        kind: "premise",
+        label: "Premise 1",
+        heading: "All contingent things need a cause",
+        text: "A contingent thing is something that doesn’t have to exist. It exists only because something caused it, like a pen that exists only because someone made it.",
+        evidenceRefs: ["CCC 338", "Acts 17:25", "CCC 32"]
+      },
+      {
+        kind: "premise",
+        label: "Premise 2",
+        heading: "Nothing can cause itself",
+        text: "Something can’t cause itself to exist, because a cause has to come before its effect. To make itself, a thing would have to exist before it existed.",
+        evidenceRefs: ["CCC 34"]
+      },
+      {
+        kind: "premise",
+        label: "Premise 3",
+        heading: "Causes come in chains",
+        text: "Contingent causes have causes of their own. A pen was made by a company, which was started by a person, who was born to parents, and so on. Each link in the chain depends on another.",
+        evidenceRefs: ["CCC 32"]
+      },
+      {
+        kind: "premise",
+        label: "Premise 4",
+        heading: "The chain can’t go back forever",
+        text: "A chain of causes needs a real first link. Picture a chandelier hanging from a chain. Each link holds up the one below it, but only because the link above holds it up. Add as many links as you like, even infinitely many, and nothing holds the chandelier up unless the chain is fixed to the ceiling. Or picture a train of boxcars. Each car is pulled by the one in front of it, but a train made only of boxcars, however long, never moves without an engine. The first cause is “first” in this sense: everything else hangs on it.",
+        evidenceRefs: ["CCC 301", "Colossians 1:17"]
+      },
+      {
+        kind: "conclusion",
+        label: "Conclusion 1",
+        heading: "There must be a first, uncaused cause",
+        text: "Premises 1 and 3 say every contingent thing has a cause, and that causes form chains. Premise 4 says the chain can’t go back forever, so it needs a beginning. Premise 2 says nothing causes itself, so that beginning can’t have a cause of its own. It must be uncaused.",
+        evidenceRefs: ["CCC 34", "CCC 32", "Romans 1:20"]
+      },
+      {
+        kind: "conclusion",
+        label: "Conclusion 2",
+        heading: "The first cause is a necessary being",
+        text: "Since nothing comes before the first cause, nothing outside it decides whether it exists. It exists by its own nature, so there is no possible reality in which it doesn’t exist. Something that can’t fail to exist is necessary, not contingent. Premise 1 applies only to things that could fail to exist.",
+        evidenceRefs: ["CCC 213", "Exodus 3:14", "Psalm 90:2", "CCC 34"]
+      },
+      {
+        kind: "conclusion",
+        label: "Conclusion 3",
+        heading: "The first cause is “pure act,” with no unrealized potential",
+        text: "A being with unrealized potential would need something before it to bring that potential about, which would contradict its being the uncaused first cause. So the first cause has no capacities waiting to be filled. Everything it is, it is fully, and it does not change. Philosophers call this “pure act.”",
+        evidenceRefs: ["Malachi 3:6", "James 1:17", "CCC 212"]
+      },
+      {
+        kind: "conclusion",
+        label: "Conclusion 4",
+        heading: "The first cause is what classical theism means by God",
+        text: "Because the first cause has no potential, it can’t gain or lose knowledge, power, love, or perfection, since any such change would require potential. Potential is the lack of a perfection that could be had, so a being with no potential lacks no perfection. Every perfection must be in it in the fullest way: unlimited knowledge, all power, perfect justice. That is what classical theism, and the Christian faith, mean by God.",
+        evidenceRefs: ["CCC 213", "CCC 41", "CCC 268", "CCC 271", "Hebrews 4:13", "CCC 302"]
+      }
+    ],
+    evidence: [
+      /* ---------- SCRIPTURE (NABRE) ---------- */
+      {
+        type: "scripture",
+        ref: "Romans 1:20",
+        source: "Letter to the Romans",
+        translation: "NABRE",
+        quote: "Ever since the creation of the world, his invisible attributes of eternal power and divinity have been able to be understood and perceived in what he has made.",
+        plain: "St. Paul says that anyone can come to know God’s power and divinity by looking at creation.",
+        url: "https://bible.usccb.org/bible/romans/1"
+      },
+      {
+        type: "scripture",
+        ref: "Acts 17:25",
+        source: "Acts of the Apostles",
+        translation: "NABRE",
+        quote: "Rather it is he who gives to everyone life and breath and everything.",
+        plain: "Speaking to Greek philosophers in Athens, Paul says everything we have, even our existence, comes from God.",
+        note: "A few verses later Paul quotes a Greek poet with approval: “In him we live and move and have our being” (Acts 17:28).",
+        url: "https://bible.usccb.org/bible/acts/17"
+      },
+      {
+        type: "scripture",
+        ref: "Colossians 1:17",
+        source: "Letter to the Colossians",
+        translation: "NABRE",
+        quote: "He is before all things, and in him all things hold together.",
+        plain: "God doesn’t only start the world. Everything depends on him to keep existing, like the chandelier on the ceiling.",
+        url: "https://bible.usccb.org/bible/colossians/1"
+      },
+      {
+        type: "scripture",
+        ref: "Exodus 3:14",
+        source: "Book of Exodus",
+        translation: "NABRE",
+        quote: "God replied to Moses: I am who I am. Then he added: This is what you will tell the Israelites: I AM has sent me to you.",
+        plain: "God’s own name for himself is about existence itself: he simply is.",
+        note: "In summary, the official NABRE footnote explains that the Hebrew can mean “I am” or “I will be,” and that the divine name is probably connected to the Hebrew verb “to be.”",
+        url: "https://bible.usccb.org/bible/exodus/3"
+      },
+      {
+        type: "scripture",
+        ref: "Psalm 90:2",
+        source: "Book of Psalms",
+        translation: "NABRE",
+        quote: "Before the mountains were born, the earth and the world brought forth, from eternity to eternity you are God.",
+        plain: "Everything else had a beginning. God has always been.",
+        url: "https://bible.usccb.org/bible/psalms/90"
+      },
+      {
+        type: "scripture",
+        ref: "Malachi 3:6",
+        source: "Book of Malachi",
+        translation: "NABRE",
+        quote: "For I, the LORD, do not change …",
+        plain: "God says plainly that he does not change.",
+        url: "https://bible.usccb.org/bible/malachi/3"
+      },
+      {
+        type: "scripture",
+        ref: "James 1:17",
+        source: "Letter of James",
+        translation: "NABRE",
+        quote: "all good giving and every perfect gift is from above, coming down from the Father of lights, with whom there is no alteration or shadow caused by change.",
+        plain: "Every good thing comes from God, who never changes.",
+        url: "https://bible.usccb.org/bible/james/1"
+      },
+      {
+        type: "scripture",
+        ref: "Hebrews 4:13",
+        source: "Letter to the Hebrews",
+        translation: "NABRE",
+        quote: "No creature is concealed from him, but everything is naked and exposed to the eyes of him to whom we must render an account.",
+        plain: "God knows everything. Nothing is hidden from him.",
+        url: "https://bible.usccb.org/bible/hebrews/4"
+      },
+
+      /* ---------- CATECHISM ---------- */
+      {
+        type: "catechism",
+        ref: "CCC 31",
+        source: "Catechism of the Catholic Church",
+        quote: "Created in God’s image and called to know and love him, the person who seeks God discovers certain ways of coming to know him. These are also called proofs for the existence of God, not in the sense of proofs in the natural sciences, but rather in the sense of “converging and convincing arguments”, which allow us to attain certainty about the truth. These “ways” of approaching God from creation have a twofold point of departure: the physical world, and the human person.",
+        plain: "The Church calls these arguments “proofs.” They give real certainty, though not the kind a science experiment gives.",
+        url: "https://www.vatican.va/archive/ENG0015/__PA.HTM"
+      },
+      {
+        type: "catechism",
+        ref: "CCC 32",
+        source: "Catechism of the Catholic Church",
+        quote: "The world: starting from movement, becoming, contingency, and the world’s order and beauty, one can come to a knowledge of God as the origin and the end of the universe.",
+        plain: "The Catechism names “contingency” as one starting point for reasoning to God, which is exactly where this argument begins.",
+        url: "https://www.vatican.va/archive/ENG0015/__PA.HTM"
+      },
+      {
+        type: "catechism",
+        ref: "CCC 34",
+        source: "Catechism of the Catholic Church",
+        quote: "The world, and man, attest that they contain within themselves neither their first principle nor their final end, but rather that they participate in Being itself, which alone is without origin or end. Thus, in different ways, man can come to know that there exists a reality which is the first cause and final end of all things, a reality “that everyone calls God”.",
+        plain: "Nothing in the world explains its own existence. All of it depends on a “first cause” that has no beginning, “that everyone calls God.”",
+        url: "https://www.vatican.va/archive/ENG0015/__PA.HTM"
+      },
+      {
+        type: "catechism",
+        ref: "CCC 35",
+        source: "Catechism of the Catholic Church",
+        quote: "Man’s faculties make him capable of coming to a knowledge of the existence of a personal God. But for man to be able to enter into real intimacy with him, God willed both to reveal himself to man, and to give him the grace of being able to welcome this revelation in faith. … [T]he proofs of God’s existence, however, can predispose one to faith and help one to see that faith is not opposed to reason.",
+        plain: "Reason can show that God exists. Knowing him personally takes God’s revelation and faith. The proofs show that faith and reason are not enemies.",
+        url: "https://www.vatican.va/archive/ENG0015/__PA.HTM"
+      },
+      {
+        type: "catechism",
+        ref: "CCC 36",
+        source: "Catechism of the Catholic Church",
+        quote: "“Our holy mother, the Church, holds and teaches that God, the first principle and last end of all things, can be known with certainty from the created world by the natural light of human reason.” Without this capacity, man would not be able to welcome God’s revelation. Man has this capacity because he is created “in the image of God”.",
+        plain: "This is official Church teaching: God can be known with certainty by human reason.",
+        note: "The quotation in this paragraph comes from the First Vatican Council (Dei Filius, 1870), as the Catechism’s footnote states.",
+        url: "https://www.vatican.va/archive/ENG0015/__PB.HTM"
+      },
+      {
+        type: "catechism",
+        ref: "CCC 41",
+        source: "Catechism of the Catholic Church",
+        quote: "All creatures bear a certain resemblance to God, most especially man, created in the image and likeness of God. [T]he manifold perfections of creatures - their truth, their goodness, their beauty all reflect the infinite perfection of God. Consequently we can name God by taking his creatures’ perfections as our starting point, “for from the greatness and beauty of created things comes a corresponding perception of their Creator”.",
+        plain: "Every good quality we find in creation points to the same quality, without limit, in God.",
+        note: "The last line quotes the Book of Wisdom (Wisdom 13:5).",
+        url: "https://www.vatican.va/archive/ENG0015/__PC.HTM"
+      },
+      {
+        type: "catechism",
+        ref: "CCC 47",
+        source: "Catechism of the Catholic Church",
+        quote: "The Church teaches that the one true God, our Creator and Lord, can be known with certainty from his works, by the natural light of human reason.",
+        plain: "The Catechism’s one-sentence summary of this teaching.",
+        url: "https://www.vatican.va/archive/ENG0015/__PD.HTM"
+      },
+      {
+        type: "catechism",
+        ref: "CCC 212",
+        source: "Catechism of the Catholic Church",
+        quote: "In God “there is no variation or shadow due to change.” God is “HE WHO IS”, from everlasting to everlasting, and as such remains ever faithful to himself and to his promises.",
+        plain: "God never changes. He simply is, forever.",
+        url: "https://www.vatican.va/archive/ENG0015/__P16.HTM"
+      },
+      {
+        type: "catechism",
+        ref: "CCC 213",
+        source: "Catechism of the Catholic Church",
+        quote: "The revelation of the ineffable name “I AM WHO AM” contains then the truth that God alone IS. The Greek Septuagint translation of the Hebrew Scriptures, and following it the Church’s Tradition, understood the divine name in this sense: God is the fullness of Being and of every perfection, without origin and without end. All creatures receive all that they are and have from him; but he alone is his very being, and he is of himself everything that he is.",
+        plain: "Everything else receives its existence. God is existence itself, “the fullness of Being and of every perfection.”",
+        url: "https://www.vatican.va/archive/ENG0015/__P16.HTM"
+      },
+      {
+        type: "catechism",
+        ref: "CCC 268",
+        source: "Catechism of the Catholic Church",
+        quote: "Of all the divine attributes, only God’s omnipotence is named in the Creed: to confess this power has great bearing on our lives. We believe that his might is universal, for God who created everything also rules everything and can do everything.",
+        plain: "God is all-powerful. He made everything and can do everything.",
+        url: "https://www.vatican.va/archive/ENG0015/__P18.HTM"
+      },
+      {
+        type: "catechism",
+        ref: "CCC 271",
+        source: "Catechism of the Catholic Church",
+        quote: "God’s almighty power is in no way arbitrary: “In God, power, essence, will, intellect, wisdom, and justice are all identical. Nothing therefore can be in God’s power which could not be in his just will or his wise intellect.”",
+        plain: "God’s power, knowledge, wisdom and justice are not separate parts. In God they are all one, as the argument’s last step expects.",
+        note: "Here the Catechism is quoting St. Thomas Aquinas. The quotation is cited as part of the Catechism’s own text.",
+        url: "https://www.vatican.va/archive/ENG0015/__P18.HTM"
+      },
+      {
+        type: "catechism",
+        ref: "CCC 286",
+        source: "Catechism of the Catholic Church",
+        quote: "Human intelligence is surely already capable of finding a response to the question of origins. The existence of God the Creator can be known with certainty through his works, by the light of human reason, even if this knowledge is often obscured and disfigured by error.",
+        plain: "Reason can find God, but people often get it wrong or miss it.",
+        url: "https://www.vatican.va/archive/ENG0015/__P19.HTM"
+      },
+      {
+        type: "catechism",
+        ref: "CCC 301",
+        source: "Catechism of the Catholic Church",
+        quote: "With creation, God does not abandon his creatures to themselves. He not only gives them being and existence, but also, and at every moment, upholds and sustains them in being, enables them to act and brings them to their final end.",
+        plain: "God holds everything in existence right now, not just at the beginning. This is the “ceiling” in the chandelier picture.",
+        url: "https://www.vatican.va/archive/ENG0015/__P19.HTM"
+      },
+      {
+        type: "catechism",
+        ref: "CCC 302",
+        source: "Catechism of the Catholic Church",
+        quote: "For “all are open and laid bare to his eyes”, even those things which are yet to come into existence through the free action of creatures.",
+        plain: "God’s knowledge has no limit. It includes even what hasn’t happened yet.",
+        url: "https://www.vatican.va/archive/ENG0015/__P19.HTM"
+      },
+      {
+        type: "catechism",
+        ref: "CCC 338",
+        source: "Catechism of the Catholic Church",
+        quote: "Nothing exists that does not owe its existence to God the Creator.",
+        plain: "Everything that exists owes its existence to something else, and ultimately to God.",
+        url: "https://www.vatican.va/archive/ENG0015/__P1A.HTM"
+      },
+
+      /* ---------- CHURCH TEACHING (MAGISTERIUM) ---------- */
+      {
+        type: "magisterium",
+        ref: "Dei Verbum 6",
+        source: "Second Vatican Council, Dei Verbum (1965)",
+        quote: "As a sacred synod has affirmed, God, the beginning and end of all things, can be known with certainty from created reality by the light of human reason (see Rom. 1:20) …",
+        plain: "The Second Vatican Council repeats the First Vatican Council: reason can know God with certainty.",
+        url: "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_const_19651118_dei-verbum_en.html"
+      },
+      {
+        type: "magisterium",
+        ref: "Fides et Ratio 19",
+        source: "Pope St. John Paul II, Fides et Ratio (1998)",
+        quote: "This is to recognize as a first stage of divine Revelation the marvellous “book of nature”, which, when read with the proper tools of human reason, can lead to knowledge of the Creator.",
+        plain: "Pope John Paul II calls creation a “book of nature” that reason can read to come to know its Creator.",
+        note: "Just before this line, the Pope quotes the Book of Wisdom (Wisdom 13:5) on knowing the Creator through the greatness and beauty of creation.",
+        url: "https://www.vatican.va/content/john-paul-ii/en/encyclicals/documents/hf_jp-ii_enc_14091998_fides-et-ratio.html"
+      },
+      {
+        type: "magisterium",
+        ref: "Humani Generis 2",
+        source: "Pope Pius XII, Humani Generis (1950)",
+        quote: "For though, absolutely speaking, human reason by its own natural force and light can arrive at a true and certain knowledge of the one personal God, Who by His providence watches over and governs the world, and also of the natural law, which the Creator has written in our hearts, still there are not a few obstacles to prevent reason from making efficient and fruitful use of its natural ability.",
+        plain: "Reason can truly know God, but many things get in the way, which is why not everyone reaches that conclusion.",
+        url: "https://www.vatican.va/content/pius-xii/en/encyclicals/documents/hf_p-xii_enc_12081950_humani-generis.html"
+      }
+    ],
+    objections: [
+      {
+        question: "If everything needs a cause, what caused God?",
+        answer:
+          "The argument doesn’t say everything needs a cause. Premise 1 says every contingent thing needs one, meaning everything that might not have existed. The conclusion is that there must be something that isn’t contingent: something that exists by its own nature, “without origin and without end.” Asking what caused it is like asking what caused the uncaused. The question doesn’t apply.",
+        evidenceRefs: ["CCC 213", "CCC 34", "Psalm 90:2"]
+      },
+      {
+        question: "Couldn’t the chain of causes just go back forever?",
+        answer:
+          "An endless chain of things that each borrow their existence never explains where the existence comes from, just as an endless chain of links holds up nothing without the ceiling. This is also why the argument isn’t only about how the universe began. Catholic teaching holds that God doesn’t just start the world and step away. He “at every moment, upholds and sustains” it in being. In him “all things hold together.”",
+        evidenceRefs: ["CCC 301", "Colossians 1:17"]
+      },
+      {
+        question: "Does “proof” mean God is as certain as a science experiment?",
+        answer:
+          "Not in that sense. The Catechism says these are “proofs” not as in the natural sciences, but as “converging and convincing arguments” that still let us reach real certainty. It is the kind of certainty that comes from careful reasoning about what must be true, rather than from measuring something in a lab.",
+        evidenceRefs: ["CCC 31", "CCC 36"]
+      },
+      {
+        question: "Even if there is a first cause, how do we know it’s the God of the Bible?",
+        answer:
+          "Reason arrives at a first cause that is necessary, unchanging, all-powerful and all-knowing, which is how Scripture describes God (“I AM,” “I, the LORD, do not change”). The Catechism says reason reaches the “first cause … that everyone calls God.” But reason alone can’t tell you everything, such as who Jesus is or that God is a Trinity. For a personal relationship with God, the Church teaches, God chose to reveal himself.",
+        evidenceRefs: ["CCC 34", "CCC 35", "Exodus 3:14", "Malachi 3:6"]
+      },
+      {
+        question: "If reason can know God, why doesn’t everyone believe?",
+        answer:
+          "The Church is realistic about this. It teaches that reason can know God, but that this knowledge “is often obscured and disfigured by error,” and that “there are not a few obstacles” that keep reason from reaching it.",
+        evidenceRefs: ["CCC 286", "Humani Generis 2", "Romans 1:20"]
+      },
+      {
+        question: "Is this official Church teaching, or just one theologian’s opinion?",
+        answer:
+          "It is official teaching. The First Vatican Council (1870) taught that God can be known with certainty by human reason. The Second Vatican Council repeated it, and the Catechism teaches it. This particular argument comes from St. Thomas Aquinas, but the teaching that reason can reach God belongs to the Church itself.",
+        evidenceRefs: ["CCC 36", "CCC 47", "Dei Verbum 6", "Fides et Ratio 19"]
       }
     ]
   },
