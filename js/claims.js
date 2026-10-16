@@ -76,7 +76,7 @@ window.ALLOWED_SOURCES = {
   scriptureTranslation: "NABRE",
   // "Further reading" links are NOT evidence. They appear in a separate, labeled box,
   // and may only point to these Catholic sites.
-  furtherReadingHosts: ["www.catholic.com"]
+  furtherReadingHosts: ["www.catholic.com", "shop.catholic.com"]
 };
 
 window.CLAIMS = [
@@ -394,7 +394,7 @@ window.CLAIMS = [
       "The word “pope” does not appear in the Bible, and Catholics do not claim it does. The claim is about a role. Catholics believe Jesus gave Peter a unique role of leadership among the apostles, and that this role was meant to continue after Peter died.",
       "The Catechism sums it up this way: “The Lord made Simon alone, whom he named Peter, the ‘rock’ of his Church. He gave him the keys of his Church and instituted him shepherd of the whole flock” (Catechism 881). It also teaches that this office was “destined to be transmitted to his successors” (Catechism 862), and that the Bishop of Rome is Peter’s successor (Catechism 882, 936).",
       "Catholics also stress that this authority is a form of service, not domination. The Church teaches that the Pope, “like all the faithful,” is “subject to the Word of God,” and calls him the “servant of the servants of God.”",
-      "The steps below lay out the case in order, following the outline used by Catholic apologist Trent Horn. Every piece of evidence comes only from Scripture, the Catechism, or official documents of the Holy See."
+      "The steps below lay out the case in order, drawing on arguments made by Catholic apologists such as Trent Horn and Joe Heschmeyer. Every piece of evidence comes only from Scripture, the Catechism, or official documents of the Holy See."
     ],
     points: [
       {
@@ -414,13 +414,13 @@ window.CLAIMS = [
       },
       {
         heading: "Jesus made Peter the shepherd who strengthens the others",
-        text: "After the Resurrection, Jesus told Peter three times to feed and tend his sheep. Before the Passion, he told Peter that Satan wanted to sift “all of you,” but that he had prayed for Peter’s faith in particular, so that Peter could “strengthen your brothers.”",
-        evidenceRefs: ["John 21:15–17", "Luke 22:31–32", "CCC 553", "CCC 552"]
+        text: "After the Resurrection, Jesus told Peter three times to feed and tend his sheep. Just before that, at Jesus’ word, Peter alone hauled ashore the net holding 153 large fish, and the net did not tear. The Catholic Bible’s notes read that number as a sign of the apostles’ worldwide mission. Before the Passion, Jesus told Peter that Satan wanted to sift “all of you,” but that he had prayed for Peter’s faith in particular, so that Peter could “strengthen your brothers.”",
+        evidenceRefs: ["John 21:15–17", "John 21:11", "Luke 22:31–32", "CCC 553", "CCC 552"]
       },
       {
         heading: "Peter is always first",
-        text: "Matthew’s list of the Twelve begins “first, Simon called Peter.” The risen Jesus appeared to Peter before the rest of the Twelve. The Catechism says Peter “holds the first place in the college of the Twelve” and sees the Risen One before the other apostles because he was “called to strengthen the faith of his brothers.”",
-        evidenceRefs: ["Matthew 10:2", "Luke 24:34", "1 Corinthians 15:5", "CCC 641", "CCC 552"]
+        text: "Matthew’s list of the Twelve begins “first, Simon called Peter.” When the collectors of the temple tax wanted to know whether Jesus paid it, they asked Peter. Jesus then provided a single coin to pay “for me and for you.” The risen Jesus appeared to Peter before the rest of the Twelve. The Catechism says Peter “holds the first place in the college of the Twelve” and sees the Risen One before the other apostles because he was “called to strengthen the faith of his brothers.”",
+        evidenceRefs: ["Matthew 10:2", "Matthew 17:24–27", "Luke 24:34", "1 Corinthians 15:5", "CCC 641", "CCC 552"]
       },
       {
         heading: "Peter led the early Church",
@@ -436,6 +436,11 @@ window.CLAIMS = [
         heading: "Peter’s successor is the Bishop of Rome",
         text: "Peter sends greetings from “Babylon,” which the Catholic Bible’s notes explain was a code name for Rome. The Church teaches that Peter’s presence and death in Rome are attested by the most ancient tradition, and that the Bishop of Rome succeeds Peter. The Catechism also quotes two early Christian writers on the Church of Rome’s leading role.",
         evidenceRefs: ["1 Peter 5:13", "Primacy of the Successor of Peter 3", "Primacy of the Successor of Peter 4", "CCC 834", "CCC 882"]
+      },
+      {
+        heading: "Christ founded one visible Church, meant to stay united in the truth",
+        text: "The Church Christ founded is not only an invisible fellowship of believers. Vatican II teaches that he established it “as an entity with visible delineation,” and that it “subsists in the Catholic Church, which is governed by the successor of Peter.” Christ founded “one Church and one Church only,” and Scripture calls it “the pillar and foundation of truth.” A visible Church that must stay both united and faithful to the truth needs a visible center of unity. Catholics believe that center is the office Christ gave Peter.",
+        evidenceRefs: ["Lumen Gentium 8", "Unitatis Redintegratio 1", "1 Timothy 3:15", "CCC 171", "CCC 882", "Lumen Gentium 18"]
       },
       {
         heading: "What the Pope’s authority is, and what it isn’t",
@@ -462,7 +467,7 @@ window.CLAIMS = [
         translation: "NABRE",
         quote: "And so I say to you, you are Peter, and upon this rock I will build my church, and the gates of the netherworld shall not prevail against it.",
         plain: "Jesus names Peter as the rock he will build his Church on, and promises that death itself will not overcome it.",
-        note: "The official NABRE footnote on this verse says: “Jesus’ church means the community that he will gather and that, like a building, will have Peter as its solid foundation.”",
+        note: "The official NABRE footnote on this verse says: “Jesus’ church means the community that he will gather and that, like a building, will have Peter as its solid foundation.” In summary, the same footnote also explains three things. In the Aramaic Jesus probably spoke, the same word, kēpā’ (“rock”), stands in both places. The Greek words petros and petra could be used interchangeably for “rock.” And Matthew probably used the masculine petros because a feminine noun would be awkward as a man’s name.",
         url: "https://bible.usccb.org/bible/matthew/16"
       },
       {
@@ -493,6 +498,35 @@ window.CLAIMS = [
         plain: "After the Resurrection, Jesus hands Peter the care of his whole flock.",
         note: "In summary, the official NABRE footnote says Peter’s threefold profession of love is meant to counteract his earlier threefold denial.",
         url: "https://bible.usccb.org/bible/john/21"
+      },
+      {
+        type: "scripture",
+        ref: "John 21:11",
+        source: "Gospel of John",
+        translation: "NABRE",
+        quote: "So Simon Peter went over and dragged the net ashore full of one hundred fifty-three large fish. Even though there were so many, the net was not torn.",
+        plain: "Just before Jesus tells Peter to feed his sheep, Peter alone hauls in the whole catch at Jesus’ word.",
+        note: "In summary, the official NABRE footnote says the number 153 probably has a symbolic meaning tied to the apostles’ worldwide mission.",
+        url: "https://bible.usccb.org/bible/john/21"
+      },
+      {
+        type: "scripture",
+        ref: "Matthew 17:24–27",
+        source: "Gospel of Matthew",
+        translation: "NABRE",
+        quote: "When they came to Capernaum, the collectors of the temple tax approached Peter and said, “Doesn’t your teacher pay the temple tax?” … Open its mouth and you will find a coin worth twice the temple tax. Give that to them for me and for you.",
+        plain: "The collectors bring their question about Jesus to Peter, and Jesus provides one coin to pay for himself and Peter together.",
+        note: "In summary, the official NABRE footnote says this episode belongs to Matthew’s special material about Peter, and that the question is answered through a word of Jesus conveyed to Peter.",
+        url: "https://bible.usccb.org/bible/matthew/17"
+      },
+      {
+        type: "scripture",
+        ref: "1 Timothy 3:15",
+        source: "First Letter to Timothy",
+        translation: "NABRE",
+        quote: "… you should know how to behave in the household of God, which is the church of the living God, the pillar and foundation of truth.",
+        plain: "Paul calls the Church itself the pillar that holds up the truth.",
+        url: "https://bible.usccb.org/bible/1timothy/3"
       },
       {
         type: "scripture",
@@ -624,6 +658,14 @@ window.CLAIMS = [
       },
 
       /* ---------- CATECHISM ---------- */
+      {
+        type: "catechism",
+        ref: "CCC 171",
+        source: "Catechism of the Catholic Church",
+        quote: "The Church, “the pillar and bulwark of the truth”, faithfully guards “the faith which was once for all delivered to the saints”.",
+        plain: "The Catechism uses the same verse from 1 Timothy: the Church guards the faith handed down from the apostles.",
+        url: "https://www.vatican.va/archive/ENG0015/__P10.HTM"
+      },
       {
         type: "catechism",
         ref: "CCC 424",
@@ -758,6 +800,23 @@ window.CLAIMS = [
       },
       {
         type: "magisterium",
+        ref: "Lumen Gentium 8",
+        source: "Second Vatican Council, Lumen Gentium (1964)",
+        quote: "Christ, the one Mediator, established and continually sustains here on earth His holy Church, the community of faith, hope and charity, as an entity with visible delineation through which He communicated truth and grace to all. … This Church constituted and organized in the world as a society, subsists in the Catholic Church, which is governed by the successor of Peter and by the Bishops in communion with him.",
+        plain: "Christ’s Church is a real, visible community, not only an invisible one, and it is governed by Peter’s successor.",
+        url: "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_const_19641121_lumen-gentium_en.html"
+      },
+      {
+        type: "magisterium",
+        ref: "Unitatis Redintegratio 1",
+        source: "Second Vatican Council, Unitatis Redintegratio (1964)",
+        quote: "Christ the Lord founded one Church and one Church only. … Such division openly contradicts the will of Christ, scandalizes the world, and damages the holy cause of preaching the Gospel to every creature.",
+        plain: "Christ wanted one Church. Division among Christians goes against his will.",
+        note: "This is Vatican II’s Decree on Ecumenism, which speaks with respect for other Christians and calls all Christians to work toward unity.",
+        url: "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_decree_19641121_unitatis-redintegratio_en.html"
+      },
+      {
+        type: "magisterium",
         ref: "Lumen Gentium 22",
         source: "Second Vatican Council, Lumen Gentium (1964)",
         quote: "For our Lord placed Simon alone as the rock and the bearer of the keys of the Church, and made him shepherd of the whole flock.",
@@ -811,6 +870,12 @@ window.CLAIMS = [
         evidenceRefs: ["1 Corinthians 10:4", "1 Peter 2:4–5", "CCC 552", "CCC 424", "Matthew 16:18"]
       },
       {
+        question: "Doesn’t “Petros” (Peter) mean a small stone, while “petra” (the rock) means a big one?",
+        answer:
+          "No. Jesus most likely spoke Aramaic, and the Bible gives Peter’s Aramaic name: Cephas, which means “rock.” The official notes in the Catholic Bible explain three things. In Aramaic the same word, kēpā’, stands in both places (“you are Kēpā’, and upon this kēpā’”). The Greek words petros and petra could be used interchangeably for “rock.” And Matthew likely used the masculine petros only because a feminine noun would be an odd name for a man.",
+        evidenceRefs: ["Matthew 16:18", "John 1:42", "CCC 552"]
+      },
+      {
         question: "Peter called himself a “fellow presbyter.” Doesn’t that make him just one elder among many?",
         answer:
           "Humility does not cancel authority. Jesus told the apostles that the leader among them must be “as the servant,” and the Church teaches that all authority in the Church is service. That is why one of the Pope’s titles is “servant of the servants of God.” Speaking humbly as a “fellow presbyter” is exactly what Jesus asked of the leader.",
@@ -842,6 +907,13 @@ window.CLAIMS = [
         publisher: "Catholic Answers Magazine, 2015",
         url: "https://www.catholic.com/magazine/print-edition/defending-the-papacy",
         note: "A Catholic apologist’s fuller case, which this page’s outline follows. It also draws on Church Fathers and non-Catholic scholars. That is why it is listed here and not used as evidence."
+      },
+      {
+        title: "Pope Peter: Defending the Church’s Most Distinctive Doctrine in a Time of Crisis",
+        author: "Joe Heschmeyer",
+        publisher: "Catholic Answers Press",
+        url: "https://shop.catholic.com/pope-peter-defending-the-churchs-most-distinctive-doctrine-in-a-time-of-crisis-digital/",
+        note: "A book-length case for the papacy that reads the Gospels in their first-century Jewish setting. Several points on this page, such as the visible Church, the temple tax, the catch of 153 fish and the meaning of “Petros,” were suggested by it. They are backed here only by Scripture, the Catechism and Church documents. Some of the book’s own readings go beyond those sources, which is why it is listed here and not used as evidence."
       }
     ]
   },

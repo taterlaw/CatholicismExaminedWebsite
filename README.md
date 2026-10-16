@@ -24,7 +24,7 @@ There is no build step. You can host it anywhere static, such as GitHub Pages or
 3. Fill in the fields: question, short answer, explanation, evidence, and common questions.
    Two fields are optional:
    - `points` shows a numbered **"The case, step by step"** section. Each step has a heading, a plain paragraph, and "See:" buttons that jump to its evidence. This is useful for claims with a lot of evidence. You can rename the section with `pointsTitle`. For a logical argument, you can tag each step with `kind: "premise"` or `kind: "conclusion"` and a `label` such as "Premise 1". Conclusions are highlighted in gold.
-   - `furtherReading` shows outside Catholic reading, such as an apologist's article, in a separate box labeled **"Not evidence."** Links must come from the sites listed in `furtherReadingHosts` (currently catholic.com).
+   - `furtherReading` shows outside Catholic reading, such as an apologist's article, in a separate box labeled **"Not evidence."** Links must come from the sites listed in `furtherReadingHosts` (currently www.catholic.com and shop.catholic.com).
 4. Check the sources: open **`verify.html`** in your browser. Nothing needs to be installed.
    If you have Node.js, you can also run `node scripts/verify-sources.mjs`.
 5. Refresh the page. The new claim appears automatically.
